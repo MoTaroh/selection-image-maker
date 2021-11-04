@@ -39,30 +39,12 @@ const Header = (props: Props) => {
 
     return (
         <div className="px-8 pb-6 space-y-5 bg-white border-b border-gray-200">
-            <ul className="relative flex justify-between w-full py-6">
-                {/* <li className="flex flex-col items-center justify-center space-y-4 cursor-pointer group">
-                    <div className="flex items-center justify-center w-8 h-8 text-lg font-bold text-white bg-green-400 rounded-full group-hover:bg-green-50">1</div>
-                    <div className="font-bold text-gray-700">テンプレート</div>
-                </li>
-                <li className="flex flex-col items-center justify-center space-y-4 cursor-pointer group">
-                    <div className="flex items-center justify-center w-8 h-8 text-lg font-bold text-gray-300 bg-white border-2 border-gray-300 rounded-full group-hover:bg-gray-100">2</div>
-                    <div className="font-bold text-gray-300">お題</div>
-                </li>
-                <li className="flex flex-col items-center justify-center space-y-4 cursor-pointer group">
-                    <div className="flex items-center justify-center w-8 h-8 text-lg font-bold text-gray-300 bg-white border-2 border-gray-300 rounded-full group-hover:bg-gray-100">3</div>
-                    <div className="font-bold text-gray-300">コンテンツ</div>
-                </li>
-                <li className="flex flex-col items-center justify-center space-y-4 cursor-pointer group">
-                    <div className="flex items-center justify-center w-8 h-8 text-lg font-bold text-gray-300 bg-white border-2 border-gray-300 rounded-full group-hover:bg-gray-100">4</div>
-                    <div className="font-bold text-gray-300">シェア</div>
-                </li> */}
-                <Stepper activeStep={1} connectorStateColors connectorStyleConfig={ConnectorStyleProps} styleConfig={StepStyleDTO} className="w-full text-gray-700">
-                    <Step label="テンプレート" />
-                    <Step label="お題" />
-                    <Step label="コンテンツ" />
-                    <Step label="シェア" />
-                </Stepper>
-            </ul>
+            <Stepper activeStep={1} connectorStateColors connectorStyleConfig={ConnectorStyleProps} styleConfig={StepStyleDTO} className="w-full text-gray-700">
+                <Step label="テンプレート" />
+                <Step label="お題" />
+                <Step label="コンテンツ" />
+                <Step label="シェア" />
+            </Stepper>
             <div className="flex">
                 <div className="text-xs font-bold text-gray-400">STEP {props.step}</div>
                 <div className="ml-4 text-lg font-bold text-gray-700">{titleMessage[props.step-1]}</div>
