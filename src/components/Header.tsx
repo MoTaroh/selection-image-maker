@@ -33,13 +33,19 @@ const Header: React.VFC = () => {
         console.log(value)
         steps.setCurrentStep(value);
     }
-    const titleMessage = [
-        "まずはテンプレートを選びましょう！",
-        "今回のお題は何にしましょう？",
-        "を教えてください！",
-        "お疲れさまでした！みんなにシェアしましょう！",
-    ]
-
+    const titleMessage = () => {
+        console.log("message");
+        switch (steps.currentStep) {
+            case 0:
+                return "まずはテンプレートを選びましょう！"
+            case 1:
+                return "今回のお題は何にしましょう？"
+            case 2:
+                return "を教えてください！"
+            case 3:
+                return "お疲れさまでした！みんなにシェアしましょう！"
+        }
+    }
     return (
         <div className="px-8 pb-6 space-y-5 bg-white border-b border-gray-200">
             <Stepper activeStep={steps.currentStep} connectorStateColors connectorStyleConfig={ConnectorStyleProps} styleConfig={StepStyleDTO} className="w-full text-gray-700">
@@ -50,7 +56,7 @@ const Header: React.VFC = () => {
             </Stepper>
             <div className="flex">
                 <div className="text-xs font-bold text-gray-400">STEP {steps.currentStep+1}</div>
-                <div className="ml-4 text-lg font-bold text-gray-700">{titleMessage[steps.currentStep]}</div>
+                <div className="ml-4 text-lg font-bold text-gray-700">{titleMessage()}</div>
             </div>
         </div>
     )
