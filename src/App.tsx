@@ -43,7 +43,7 @@ const App = () => {
     const [currentStep, setCurrentStep] = useState<number>(0);
     const [selectionTitle, setSelectionTitle] = useState<string>("");
     const [selectionContent, setSelectionContent] = useState<Array<SelectionContent>>(
-        [{ title: "", description: "", photo: "" }]
+        [{ title: "test", description: "tes", photo: "te" }]
     );
     return (
         <SelectionContext.Provider value={{currentStep, setCurrentStep, selectionTitle, setSelectionTitle, selectionContent, setSelectionContent}} >
