@@ -28,34 +28,33 @@ const StepStyleDTO = {
 }
 
 const Header: React.VFC = () => {
-    const steps = useContext(SelectionContext)
+    const selections = useContext(SelectionContext)
     const handleCurrentStep = (value: StepType) => {
-        console.log(value)
-        steps.setCurrentStep(value);
+        selections.setCurrentStep(value);
     }
     const titleMessage = () => {
-        console.log("message");
-        switch (steps.currentStep) {
+        switch (selections.currentStep) {
             case 0:
                 return "まずはテンプレートを選びましょう！"
             case 1:
                 return "今回のお題は何にしましょう？"
             case 2:
-                return "を教えてください！"
+                const title = selections.selectionTitle;
+                return `${title}を教えてください！`
             case 3:
                 return "お疲れさまでした！みんなにシェアしましょう！"
         }
     }
     return (
         <div className="px-8 pb-6 space-y-5 bg-white border-b border-gray-200">
-            <Stepper activeStep={steps.currentStep} connectorStateColors connectorStyleConfig={ConnectorStyleProps} styleConfig={StepStyleDTO} className="w-full text-gray-700">
+            <Stepper activeStep={selections.currentStep} connectorStateColors connectorStyleConfig={ConnectorStyleProps} styleConfig={StepStyleDTO} className="w-full text-gray-700">
                 <Step label="テンプレート" onClick={()=> handleCurrentStep(0)}/>
                 <Step label="お題" onClick={()=> handleCurrentStep(1)}/>
                 <Step label="コンテンツ" onClick={()=> handleCurrentStep(2)}/>
                 <Step label="シェア" onClick={()=> handleCurrentStep(3)}/>
             </Stepper>
             <div className="flex">
-                <div className="text-xs font-bold text-gray-400">STEP {steps.currentStep+1}</div>
+                <div className="text-xs font-bold text-gray-400">STEP {selections.currentStep+1}</div>
                 <div className="ml-4 text-lg font-bold text-gray-700">{titleMessage()}</div>
             </div>
         </div>

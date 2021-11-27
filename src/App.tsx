@@ -6,16 +6,31 @@ import Footer from './components/Footer'
 import Step2 from './pages/Step2'
 import Step3 from './pages/Step3'
 import Preview from './components/Preview'
+import Step4 from './pages/Step4'
 
+export type SelectionContent = {
+    title: string;
+    description: string;
+    photo: string; // URL or unicode ?
+}
 
 type InitialState = {
     currentStep: number;
     setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+    selectionTitle: string;
+    setSelectionTitle: React.Dispatch<React.SetStateAction<string>>;
+    selectionContent: Array<SelectionContent>;
+    setSelectionContent: React.Dispatch<React.SetStateAction<SelectionContent[]>>;
 };
 export const SelectionContext = createContext<InitialState>({
-    currentStep: 2,
+    currentStep: 0,
     setCurrentStep: () => {},
+    selectionTitle: "",
+    setSelectionTitle: () => {},
+    selectionContent: [{ title: "", description: "", photo: "" }],
+    setSelectionContent: () => {}
 });
+
 
 const App = () => {
     // const clickev = () => {
@@ -25,15 +40,20 @@ const App = () => {
     //         document.body.appendChild(canvas)
     //     });
     // }
-    const [currentStep, setCurrentStep] = useState<number>(2);
+    const [currentStep, setCurrentStep] = useState<number>(0);
+    const [selectionTitle, setSelectionTitle] = useState<string>("");
+    const [selectionContent, setSelectionContent] = useState<Array<SelectionContent>>(
+        [{ title: "", description: "", photo: "" }]
+    );
     return (
-        <SelectionContext.Provider value={{currentStep, setCurrentStep}} >
+        <SelectionContext.Provider value={{currentStep, setCurrentStep, selectionTitle, setSelectionTitle, selectionContent, setSelectionContent}} >
             <div className="flex w-screen h-screen">
                 <div className="flex flex-col w-710px">
                     <Header></Header>
                     {currentStep === 0 && (<Step1></Step1>)}
                     {currentStep === 1 && (<Step2></Step2>)}
                     {currentStep === 2 && (<Step3></Step3>)}
+                    {currentStep === 3 && (<Step4></Step4>)}
                     <Footer></Footer>
                 </div>
                 <div className="flex flex-1 p-8 bg-gray-100 border-l border-gray-300 justify-items-center">
