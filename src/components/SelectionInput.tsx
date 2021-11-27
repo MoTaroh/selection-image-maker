@@ -8,11 +8,22 @@ type Props = {
 
 const SelectionInput = (props: Props) => {
   const selections = useContext(SelectionContext);
-  const handleSelectionsContent = (event: any) => {
+  const handleSelectionsContent = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     let newSelectionContent = [...selections.selectionContent];
-    event.target.id === "title"
-      ? (newSelectionContent[props.index].title = event.target.value)
-      : (newSelectionContent[props.index].description = event.target.value);
+    switch (event.target.id) {
+      case "photo":
+        break;
+      case "title":
+        newSelectionContent[props.index].title = event.target.value;
+        break;
+      case "description":
+        newSelectionContent[props.index].description = event.target.value;
+        break;
+      default:
+        break;
+    }
     props.setSelectionContent(newSelectionContent);
   };
   return (
