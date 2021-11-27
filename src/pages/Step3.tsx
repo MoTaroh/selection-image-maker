@@ -31,7 +31,7 @@ const Step3 = () => {
           onClick={addNewContent}
           className="px-3 py-2 font-bold text-gray-400 border border-gray-300 rounded-full hover:bg-gray-100"
         >
-          {selections.selectionContent.length}つ目を追加する
+          {selections.selectionContent.length + 1}つ目を追加する
         </button>
       </div>
     </div>
