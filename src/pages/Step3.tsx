@@ -23,10 +23,9 @@ const Step3 = () => {
     ]);
   };
   return (
-    <div className="h-full p-10 overflow-y-auto bg-gray-50">
-      <div className="space-y-5">
-        {listContentInput}
-        <div className="w-full h-px bg-gray-200"></div>
+    <div className="h-full px-10 py-5 overflow-y-auto bg-gray-50">
+      <div className="divide-y divide-gray-200">{listContentInput}</div>
+      <div className="flex justify-center">
         <button
           onClick={addNewContent}
           className="px-3 py-2 font-bold text-gray-400 border border-gray-300 rounded-full hover:bg-gray-100"

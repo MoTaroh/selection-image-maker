@@ -11,7 +11,7 @@ const Preview = () => {
   ));
   return (
     <div className="w-full h-full p-16 bg-green-400">
-      <div className="flex flex-col items-center w-full h-full bg-white shadow-xl">
+      <div className="flex flex-col items-center w-full h-full p-20 bg-white shadow-xl">
         <h1 className="inline-block px-2 py-1 text-lg font-bold text-white bg-black">
           {selections.selectionTitle}
         </h1>

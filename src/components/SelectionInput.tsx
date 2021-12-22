@@ -27,7 +27,7 @@ const SelectionInput = (props: Props) => {
     props.setSelectionContent(newSelectionContent);
   };
   return (
-    <div className="flex space-x-8">
+    <div className="flex space-x-8 py-5">
       <div className="w-20 h-20 bg-gray-100 border border-gray-300 rounded-md"></div>
       <div className="flex-1 space-y-5">
         <div className="space-y-3">
