@@ -14,7 +14,7 @@ export type SelectionContent = {
   photo: string; // URL or unicode ?
 };
 
-type InitialState = {
+export type StepInitialStateType = {
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
   selectionTitle: string;
@@ -22,7 +22,7 @@ type InitialState = {
   selectionContent: Array<SelectionContent>;
   setSelectionContent: React.Dispatch<React.SetStateAction<SelectionContent[]>>;
 };
-export const SelectionContext = createContext<InitialState>({
+export const SelectionContext = createContext<StepInitialStateType>({
   currentStep: 0,
   setCurrentStep: () => {},
   selectionTitle: "",
